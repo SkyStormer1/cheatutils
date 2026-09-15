@@ -178,6 +178,7 @@ public class BedrockBreaker implements Module {
                 continue;
             }
             pistonDirection = direction;
+            mc.player.displayClientMessage(Component.literal(pistonDirection.toString()),false);
             break;
         }
 
@@ -319,6 +320,7 @@ public class BedrockBreaker implements Module {
         }
 
         BlockPlacePlan plan = BlockPlacer.createPacketPlan(pistonPos, BlockPlacingMethod.facing(pistonDirection.getOpposite()));
+        mc.player.displayClientMessage(Component.literal(pistonDirection.getOpposite().toString()),false);
         if (plan == null) {
             reset("Cannot place reverse piston");
             return;
