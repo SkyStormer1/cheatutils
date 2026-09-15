@@ -90,23 +90,29 @@ public class BlockPlacer {
         LocalPlayer player = mc.player;
 
         if (level == null || player == null) {
+            if (player != null) player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Level or Player is null"));
             return null;
         }
-
+    
         if (method == BlockPlacingMethod.ITEM_USE) {
+            player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Method is ITEM_USE"));
             return null; // TODO?
         }
+    
         if (method == BlockPlacingMethod.AIR_PLACE) {
+            player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Method is AIR_PLACE"));
             return null; // TODO?
         }
-
+    
         BlockState currentState = level.getBlockState(pos);
         if (!currentState.canBeReplaced()) {
+            player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Target block cannot be replaced at: " + pos.toShortString()));
             return null;
         }
-
+    
         CollisionContext collisioncontext = CollisionContext.of(player);
         if (!level.isUnobstructed(Blocks.STONE.defaultBlockState(), pos, collisioncontext)) {
+            player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Placement position is obstructed"));
             return null;
         }
 
