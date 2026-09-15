@@ -160,7 +160,7 @@ public class BlockPlacer {
                 }
             }
         }
-
+        player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] It reached the end so null"));
         return null;
     }
 
