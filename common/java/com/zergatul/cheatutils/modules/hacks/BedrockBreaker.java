@@ -1,5 +1,5 @@
 package com.zergatul.cheatutils.modules.hacks;
-
+import net.minecraft.network.chat.Component;
 import com.mojang.datafixers.util.Pair;
 import com.zergatul.cheatutils.blocks.BlockPlacePlan;
 import com.zergatul.cheatutils.blocks.BlockPlacer;
