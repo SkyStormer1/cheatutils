@@ -137,7 +137,6 @@ public class BlockPlacer {
                     } else {
                         if (method.isDelayedRotation()) {
                             player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§c[Debug] Its isDelayedRotation"));
-                            return null; // not possible
                         }
                         return new BlockPlacePlan() {
                             @Override
