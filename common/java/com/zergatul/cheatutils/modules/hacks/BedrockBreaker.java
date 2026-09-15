@@ -165,7 +165,7 @@ public class BedrockBreaker implements Module {
 
         // check if we have 2 free blocks in some direction: one block for piston and second block for extended piston
         pistonDirection = null;
-        for (Direction direction : sortByDistance(bedrockPos, new Direction[] { Direction.UP, Direction.DOWN })) {
+        for (Direction direction : sortByDistance(bedrockPos, Direction.values())) {
             BlockPos piston1 = bedrockPos.relative(direction);
             if (!mc.level.getBlockState(piston1).canBeReplaced()) {
                 continue;
