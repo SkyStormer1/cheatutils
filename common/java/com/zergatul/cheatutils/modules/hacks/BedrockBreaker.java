@@ -1,5 +1,5 @@
 package com.zergatul.cheatutils.modules.hacks;
-import com.zergatul.cheatutils.blocks.InteractionConfig;
+
 import com.mojang.datafixers.util.Pair;
 import com.zergatul.cheatutils.blocks.BlockPlacePlan;
 import com.zergatul.cheatutils.blocks.BlockPlacer;
@@ -317,7 +317,7 @@ public class BedrockBreaker implements Module {
             reset("Cannot select piston");
             return;
         }
-        BlockPlacePlan plan = BlockPlacer.createPlan(mc.level.getBlockState(pistonPos),pistonPos,BlockPlacingMethod.facing(pistonDirection.getOpposite()),new InteractionConfig());
+        BlockPlacePlan plan = BlockPlacer.createPacketPlan(pistonPos, BlockPlacingMethod.facing(pistonDirection.getOpposite()));
 
         if (plan == null) {
             reset("Cannot place reverse piston");
