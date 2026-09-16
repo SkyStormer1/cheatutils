@@ -1,5 +1,6 @@
 package com.zergatul.cheatutils.modules.hacks;
 
+import com.zergatul.cheatutils.configs.InteractionConfig;
 import com.mojang.datafixers.util.Pair;
 import com.zergatul.cheatutils.blocks.BlockPlacePlan;
 import com.zergatul.cheatutils.blocks.BlockPlacer;
@@ -319,7 +320,8 @@ public class BedrockBreaker implements Module {
             return;
         }
 
-        BlockPlacePlan plan = BlockPlacer.createPacketPlan(pistonPos, BlockPlacingMethod.facing(pistonDirection.getOpposite()));
+        
+        BlockPlacePlan plan = BlockPlacer.createPlan(mc.level.getBlockState(pistonPos),pistonPos,BlockPlacingMethod.facing(pistonDirection.getOpposite()),new InteractionConfig());
         mc.player.sendSystemMessage(
     net.minecraft.network.chat.Component.literal("§c[Debug] Piston Direction: " + pistonDirection.getOpposite()));
         if (plan == null) {
